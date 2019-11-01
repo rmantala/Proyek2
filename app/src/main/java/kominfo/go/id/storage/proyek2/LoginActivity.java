@@ -6,7 +6,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.io.BufferedReader;
@@ -93,16 +92,4 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-    @Override
-    public void onBackPressed() {
-
-        //konfirmasi ketika menutup halaman login
-        new AlertDialog.Builder(this)
-                .setTitle("close confirmation")
-                .setMessage("close this app?")
-                .setIcon(android.R.drawable.ic_lock_power_off)
-                .setCancelable(true)
-                .setPositiveButton("YES", (dialog, which) -> finish())
-                .setNegativeButton("NO", null).show();
-    }
 }
