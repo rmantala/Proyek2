@@ -16,6 +16,8 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText etNamaLengkap;
     private EditText etAsalSekolah;
     private EditText etAlamat;
+    EditText[] ets;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,8 +41,17 @@ public class RegisterActivity extends AppCompatActivity {
         etAsalSekolah = findViewById(R.id.etAsalSekolah);
         etAlamat = findViewById(R.id.etAlamat);
 
-        //event handler
         Button btSimpan = findViewById(R.id.btSimpan);
+
+        ets = new EditText[]{
+                etUsername,
+                etPassword,
+                etEmail,
+                etNamaLengkap,
+                etAlamat,
+                etAsalSekolah
+        };
+        //event handler
 
         btSimpan.setOnClickListener(v -> {
             if (isValidation())
@@ -51,35 +62,19 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     boolean isValidation() {
-        EditText[] ets = new EditText[]{
-                etUsername,
-                etPassword,
-                etEmail,
-                etNamaLengkap,
-                etAlamat,
-                etAsalSekolah
-        };
 
         for (EditText et : ets)
             if (et.getText().toString().isEmpty())
-                return true;
+                return false;
 
-        return false;
+        return true;
     }
 
     void simpanFileData() {
-        EditText[] ets = new EditText[]{
-                etUsername,
-                etPassword,
-                etEmail,
-                etNamaLengkap,
-                etAlamat,
-                etAsalSekolah
-        };
 
         String isiFile = "";
         for(EditText et : ets)
-            isiFile.concat(et.getText().toString() + ";");
+            isiFile += et.getText().toString() + ";";
 
         File file = new File(getFilesDir(), etUsername.getText().toString());
 
