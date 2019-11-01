@@ -48,8 +48,8 @@ public class RegisterActivity extends AppCompatActivity {
                 etPassword,
                 etEmail,
                 etNamaLengkap,
-                etAlamat,
                 etAsalSekolah
+                etAlamat,
         };
         //event handler
 
